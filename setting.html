@@ -1,0 +1,104 @@
+<html><head><title>ตั้งค่า</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+  body {
+    font-family: 'Prompt', sans-serif;
+    background: linear-gradient(to right, #e9f5ec, #f1f8f4);
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background: #2d6a4f;
+    padding: 16px 32px;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+  }
+  .content {
+    padding: 40px 10%;
+  }
+  .dashboard-section {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    padding: 30px;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+  }
+  .dashboard-section:hover {
+    box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+  }
+  h2 {
+    color: #1b4332;
+    margin-top: 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 16px;
+  }
+  table, th, td {
+    border: 1px solid #cce3d0;
+  }
+  th, td {
+    padding: 12px;
+    text-align: center;
+  }
+  ul, ol {
+    padding-left: 20px;
+    font-size: 16px;
+  }
+  img {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+</style>
+</head><body>
+<div class="navbar">
+  🌿 Smart Garden
+  <div>
+    <a href="dashboard.html">แดชบอร์ด</a>
+    <a href="plants.html">ข้อมูลพืช</a>
+    <a href="weather.html">สภาพอากาศ</a>
+    <a href="setting.html">ตั้งค่า</a>
+  </div>
+</div>
+
+
+<div style="background-color:#2d6a4f;padding:12px;color:white;font-size:18px;">
+  🌱 Smart Garden System | 
+  <a href="dashboard.html" style="color:white;margin-left:10px;">แดชบอร์ด</a> |
+  <a href="plants.html" style="color:white;margin-left:10px;">ข้อมูลพืช</a> |
+  <a href="weather.html" style="color:white;margin-left:10px;">สภาพอากาศ</a> |
+  <a href="setting.html" style="color:white;margin-left:10px;">ตั้งค่า</a>
+</div>
+
+<div class="dashboard-section">
+  <h2>การตั้งค่าเซ็นเซอร์</h2>
+  <p>ระดับแจ้งเตือนต่ำกว่า: <strong>30%</strong></p>
+  <p>การอ่านค่าทุก: <strong>10 วินาที</strong></p>
+  <p>เซ็นเซอร์ที่เชื่อมต่อ: <strong>4 ตัว</strong></p>
+</div>
+<div class="dashboard-section">
+  <h2>การแจ้งเตือน Telegram</h2>
+  <p>เปิดใช้งานแล้ว ✅</p>
+</div>
+<script src="script.js"></script>
+<script src="arduino.js"></script>
+
+<section style="background:#fff;border:1px solid #e0eee6;border-radius:14px;padding:16px;margin:16px 0;">
+  <h2 style="margin:0 0 8px;color:#1b5e20">การแจ้งเตือนผ่านอีเมล</h2>
+  <p style="margin:0 0 12px;">ทดสอบการส่งอีเมลและตรวจการเชื่อมต่อ SMTP</p>
+  <a href="/email-test.html" style="display:inline-block;background:#2d6a4f;color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;">ไปหน้าทดสอบ</a>
+</section>
+
+</body></html>

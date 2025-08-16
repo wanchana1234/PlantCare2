@@ -1,0 +1,97 @@
+<html><head><title>สภาพอากาศ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+  body {
+    font-family: 'Prompt', sans-serif;
+    background: linear-gradient(to right, #e9f5ec, #f1f8f4);
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background: #2d6a4f;
+    padding: 16px 32px;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+  }
+  .content {
+    padding: 40px 10%;
+  }
+  .dashboard-section {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    padding: 30px;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+  }
+  .dashboard-section:hover {
+    box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+  }
+  h2 {
+    color: #1b4332;
+    margin-top: 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 16px;
+  }
+  table, th, td {
+    border: 1px solid #cce3d0;
+  }
+  th, td {
+    padding: 12px;
+    text-align: center;
+  }
+  ul, ol {
+    padding-left: 20px;
+    font-size: 16px;
+  }
+  img {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+</style>
+</head><body>
+<div class="navbar">
+  🌿 Smart Garden
+  <div>
+    <a href="dashboard.html">แดชบอร์ด</a>
+    <a href="plants.html">ข้อมูลพืช</a>
+    <a href="weather.html">สภาพอากาศ</a>
+    <a href="setting.html">ตั้งค่า</a>
+  </div>
+</div>
+
+
+<div style="background-color:#2d6a4f;padding:12px;color:white;font-size:18px;">
+  🌱 Smart Garden System | 
+  <a href="dashboard.html" style="color:white;margin-left:10px;">แดชบอร์ด</a> |
+  <a href="plants.html" style="color:white;margin-left:10px;">ข้อมูลพืช</a> |
+  <a href="weather.html" style="color:white;margin-left:10px;">สภาพอากาศ</a> |
+  <a href="setting.html" style="color:white;margin-left:10px;">ตั้งค่า</a>
+</div>
+
+<div class="dashboard-section">
+  <h2>สภาพอากาศวันนี้</h2>
+  <p>อุณหภูมิ: <strong>32°C</strong></p>
+  <p>ความชื้นในอากาศ: <strong>70%</strong></p>
+  <p>สภาพฟ้า: <strong>แดดร้อน</strong></p>
+</div>
+<div class="dashboard-section">
+  <h2>แผนผังพื้นที่ปลูก</h2>
+  <img src="https://via.placeholder.com/400x200?text=Garden+Layout" alt="แผนผังสวน">
+</div>
+<script src="script.js"></script>
+<script src="arduino.js"></script>
+</body></html>

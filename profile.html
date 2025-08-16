@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>โปรไฟล์ | Smart Garden</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to right, #d1fae5, #f0fdf4);
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+  <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+    <h1 class="text-2xl font-bold text-green-700 mb-4 text-center">🧑‍🌾 โปรไฟล์ผู้ใช้</h1>
+    <form class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700">ชื่อผู้ใช้</label>
+        <input type="text" value="สมชาย" class="w-full mt-1 p-2 border border-gray-300 rounded" disabled>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">ชื่อจริง</label>
+        <input type="text" placeholder="ชื่อของคุณ" class="w-full mt-1 p-2 border border-gray-300 rounded">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">เบอร์โทร</label>
+        <input type="text" placeholder="080-xxxxxxx" class="w-full mt-1 p-2 border border-gray-300 rounded">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">เปลี่ยนรหัสผ่าน</label>
+        <input type="password" placeholder="********" class="w-full mt-1 p-2 border border-gray-300 rounded">
+      </div>
+      <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">บันทึกข้อมูล</button>
+    </form>
+    <div class="text-center mt-4 text-sm">
+      <a href="/dashboard.html" class="text-green-600 hover:underline">← กลับแดชบอร์ด</a>
+    </div>
+  </div>
+<script src="script.js"></script>
+<script src="arduino.js"></script>
+</body>
+</html>

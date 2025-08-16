@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ตั้งค่าระบบ | Smart Garden</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="min-h-screen bg-green-50 text-gray-800 font-sans p-4">
+  <div class="max-w-3xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold text-green-700">⚙️ ตั้งค่าระบบ</h1>
+      <a href="/dashboard.html" class="text-sm text-green-600 hover:underline">← กลับแดชบอร์ด</a>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow space-y-6">
+      <div>
+        <label class="block font-medium">หน่วยวัดอุณหภูมิ</label>
+        <select class="w-full mt-2 border rounded p-2">
+          <option>เซลเซียส (°C)</option>
+          <option>ฟาเรนไฮต์ (°F)</option>
+        </select>
+      </div>
+
+      <div class="flex items-center">
+        <input type="checkbox" id="notif" class="mr-2">
+        <label for="notif" class="text-sm">เปิดการแจ้งเตือนเมื่อความชื้นต่ำกว่ากำหนด</label>
+      </div>
+
+      <div class="flex items-center">
+        <input type="checkbox" id="auto" class="mr-2">
+        <label for="auto" class="text-sm">เปิดระบบรดน้ำอัตโนมัติ</label>
+      </div>
+
+      <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">💾 บันทึกการตั้งค่า</button>
+    </div>
+  </div>
+<script src="script.js"></script>
+<script src="arduino.js"></script>
+</body>
+</html>

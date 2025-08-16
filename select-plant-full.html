@@ -1,0 +1,116 @@
+
+<html>
+<head>
+  <title>เลือกพืชเพื่อปลูก (เวอร์ชันจัดเต็ม)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1fdf5;
+      padding: 40px;
+      margin: 0;
+      color: #2f3e46;
+    }
+    h1 {
+      text-align: center;
+      color: #1b4332;
+      margin-bottom: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .button {
+      margin-top: 10px;
+      display: inline-block;
+      background: #2d6a4f;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .button:hover {
+      background: #40916c;
+    }
+    .back-link {
+      display: block;
+      margin-top: 40px;
+      text-align: center;
+      color: #2d6a4f;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<h1>🌿 เลือกพืชที่คุณต้องการปลูก</h1>
+<div class="grid">
+
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/07/09/15/06/basil-2488232_960_720.jpg" alt="โหระพา" />
+      <h3>โหระพา</h3>
+      <p><strong>ความชื้น:</strong> 40-60%</p>
+      <p><strong>แสง:</strong> แดดรำไรถึงแดดจัด</p>
+      <p><strong>เก็บเกี่ยวใน:</strong> 30-35 วัน</p>
+      <a href="select-plant-advanced.html" class="button">📄 ดูวิธีปลูก</a>
+    </div>
+    
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2018/04/25/15/33/chili-3345577_960_720.jpg" alt="พริก" />
+      <h3>พริก</h3>
+      <p><strong>ความชื้น:</strong> 30-45%</p>
+      <p><strong>แสง:</strong> แดดจัด</p>
+      <p><strong>เก็บเกี่ยวใน:</strong> 75-90 วัน</p>
+      <a href="select-plant-advanced.html" class="button">📄 ดูวิธีปลูก</a>
+    </div>
+    
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2016/08/08/21/03/tomatoes-1571467_960_720.jpg" alt="มะเขือเทศ" />
+      <h3>มะเขือเทศ</h3>
+      <p><strong>ความชื้น:</strong> 35-50%</p>
+      <p><strong>แสง:</strong> แดดจัด 6-8 ชม.</p>
+      <p><strong>เก็บเกี่ยวใน:</strong> 60-75 วัน</p>
+      <a href="select-plant-advanced.html" class="button">📄 ดูวิธีปลูก</a>
+    </div>
+    
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2021/02/18/10/59/lemongrass-6024995_960_720.jpg" alt="ตะไคร้" />
+      <h3>ตะไคร้</h3>
+      <p><strong>ความชื้น:</strong> 40-55%</p>
+      <p><strong>แสง:</strong> แดดเต็มวัน</p>
+      <p><strong>เก็บเกี่ยวใน:</strong> 4-6 เดือน</p>
+      <a href="select-plant-advanced.html" class="button">📄 ดูวิธีปลูก</a>
+    </div>
+    
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/09/22/19/16/mint-2774283_960_720.jpg" alt="สะระแหน่" />
+      <h3>สะระแหน่</h3>
+      <p><strong>ความชื้น:</strong> 50-70%</p>
+      <p><strong>แสง:</strong> แดดรำไร</p>
+      <p><strong>เก็บเกี่ยวใน:</strong> 30-40 วัน</p>
+      <a href="select-plant-advanced.html" class="button">📄 ดูวิธีปลูก</a>
+    </div>
+    
+</div>
+<a href="dashboard.html" class="back-link">⬅ กลับแดชบอร์ด</a>
+<script src="script.js"></script>
+<script src="arduino.js"></script>
+</body>
+</html>

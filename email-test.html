@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Email Test - PlantGarden</title>
+  <style>
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; background: #f7fffb; margin:0; }
+    header { background:#2d6a4f; color:white; padding:14px 18px; }
+    main { max-width: 980px; margin: 20px auto; padding: 0 16px; }
+    .card { background:white; border:1px solid #e5efe9; border-radius:14px; padding:16px; margin:14px 0; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+    .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:.35rem 0; }
+    input, textarea { padding:10px 12px; border-radius:10px; border:1px solid #d1e6db; flex:1; min-width:240px; }
+    button { padding:10px 16px; border-radius:10px; border:none; cursor:pointer; background:#1b5e20; color:white; }
+    button.secondary { background:#2563eb; }
+    pre { background:#f5faf7; border:1px solid #e5efe9; padding:10px; border-radius:12px; overflow:auto; }
+    label { width:140px; }
+    small { color:#6b7280; }
+    a { color:#2563eb; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <header>
+    <b>PlantGarden — Email Test</b>
+  </header>
+  <main>
+    <div class="card">
+      <h2>1) ตรวจการเชื่อมต่อ SMTP</h2>
+      <div class="row"><button id="btnVerify" class="secondary">ตรวจการเชื่อมต่อ</button></div>
+      <pre id="outVerify"></pre>
+    </div>
+
+    <div class="card">
+      <h2>2) ส่งอีเมลทดสอบไปยัง ALERT_TO</h2>
+      <div class="row"><button id="btnDefault">ส่งอีเมลทดสอบ</button> <small>POST /api/test-email</small></div>
+      <pre id="outDefault"></pre>
+    </div>
+
+    <div class="card">
+      <h2>3) ส่งอีเมลแบบกำหนดเอง</h2>
+      <div class="row"><label>ถึง (To)</label><input id="to" type="email" value="wanchanasriubon@gmail.com"/></div>
+      <div class="row"><label>หัวข้อ</label><input id="subj" type="text" value="Test from PlantGarden"/></div>
+      <div class="row"><label>ข้อความ</label><textarea id="msg" rows="4"><h3>ทดสอบส่งอีเมลสำเร็จ</h3><p>จากระบบ PlantGarden</p></textarea></div>
+      <div class="row"><button id="btnCustom" class="secondary">ส่งแบบกำหนดเอง</button> <small>POST /api/test-email/custom</small></div>
+      <pre id="outCustom"></pre>
+    </div>
+    <p><a href="/dashboard.html">← กลับแดชบอร์ด</a></p>
+  </main>
+  <script>
+    const outVerify = document.getElementById('outVerify');
+    const outDefault = document.getElementById('outDefault');
+    const outCustom = document.getElementById('outCustom');
+
+    document.getElementById('btnVerify').onclick = async () => {
+      outVerify.textContent = 'Checking...';
+      const r = await fetch('/api/email/verify');
+      outVerify.textContent = JSON.stringify(await r.json(), null, 2);
+    };
+
+    document.getElementById('btnDefault').onclick = async () => {
+      outDefault.textContent = 'Sending...';
+      const r = await fetch('/api/test-email', { method: 'POST' });
+      outDefault.textContent = JSON.stringify(await r.json(), null, 2);
+    };
+
+    document.getElementById('btnCustom').onclick = async () => {
+      outCustom.textContent = 'Sending...';
+      const to = (document.getElementById('to').value || '').trim();
+      const subject = document.getElementById('subj').value;
+      const msg = document.getElementById('msg').value;
+      const r = await fetch('/api/test-email/custom', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ to, subject, html: msg })
+      });
+      outCustom.textContent = JSON.stringify(await r.json(), null, 2);
+    };
+  </script>
+</body>
+</html>

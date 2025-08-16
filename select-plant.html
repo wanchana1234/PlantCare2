@@ -1,0 +1,110 @@
+
+<html>
+<head>
+  <title>เลือกพืชเพื่อปลูก</title>
+  
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9fbf7;
+  padding: 40px;
+  color: #2f3e46;
+}
+h2 {
+  color: #1b4332;
+}
+ol {
+  margin-top: 10px;
+}
+a {
+  color: #2d6a4f;
+  text-decoration: none;
+}
+.back-link {
+  margin-top: 40px;
+  display: block;
+}
+</style>
+
+  <style>
+    .plant-info {
+      margin-top: 30px;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    select {
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h2>🌾 เลือกพืชที่คุณต้องการปลูก</h2>
+  <select id="plantDropdown" onchange="showInfo()">
+    <option value="">-- เลือกพืช --</option>
+    <option value="basil">โหระพา</option>
+    <option value="chili">พริก</option>
+  </select>
+
+  <div id="info" class="plant-info"></div>
+
+  <a href="dashboard.html" class="back-link">⬅ กลับหน้าแดชบอร์ด</a>
+
+<script>
+const plants = {
+  basil: {
+    name: "🌿 โหระพา",
+    duration: "30-35 วัน",
+    sunlight: "แดดรำไรถึงแดดจัด",
+    spacing: "25 ซม.",
+    moisture: "40-60%",
+    how: `
+      <ol>
+        <li>เพาะเมล็ดในถาดเพาะประมาณ 7-10 วัน</li>
+        <li>ย้ายลงแปลงเมื่อมีกล้า 4 ใบขึ้นไป</li>
+        <li>รดน้ำเช้า-เย็น ให้ดินชื้น</li>
+        <li>เก็บยอดได้เมื่ออายุ 30 วันขึ้นไป</li>
+      </ol>`
+  },
+  chili: {
+    name: "🌶 พริก",
+    duration: "75-90 วัน",
+    sunlight: "แดดจัด",
+    spacing: "30 ซม.",
+    moisture: "30-45%",
+    how: `
+      <ol>
+        <li>เพาะเมล็ดในดินร่วนปนทราย 10-15 วัน</li>
+        <li>ย้ายปลูกลงแปลง ห่างกัน 30 ซม.</li>
+        <li>รดน้ำวันละ 1 ครั้งช่วงเช้า</li>
+        <li>เก็บผลเมื่อเริ่มแดง</li>
+      </ol>`
+  }
+};
+
+function showInfo() {
+  const val = document.getElementById('plantDropdown').value;
+  const info = document.getElementById('info');
+  if (plants[val]) {
+    const p = plants[val];
+    info.innerHTML = `
+      <h3>${p.name}</h3>
+      <p><strong>ระยะเวลาปลูก:</strong> ${p.duration}</p>
+      <p><strong>แสงแดด:</strong> ${p.sunlight}</p>
+      <p><strong>ระยะห่าง:</strong> ${p.spacing}</p>
+      <p><strong>ความชื้นที่เหมาะสม:</strong> ${p.moisture}</p>
+      <h4>📌 วิธีการปลูก</h4>
+      ${p.how}
+    `;
+  } else {
+    info.innerHTML = "";
+  }
+}
+</script>
+<script src="script.js"></script>
+<script src="arduino.js"></script>
+</body>
+</html>

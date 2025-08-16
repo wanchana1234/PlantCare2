@@ -1,0 +1,278 @@
+
+<html>
+<head><title>แดชบอร์ด</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+  body {
+    font-family: 'Prompt', sans-serif;
+    background: linear-gradient(to right, #e9f5ec, #f1f8f4);
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    background: #2d6a4f;
+    padding: 16px 32px;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+  }
+  .content {
+    padding: 40px 10%;
+  }
+  .dashboard-section {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    padding: 30px;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+  }
+  .dashboard-section:hover {
+    box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+  }
+  h2 {
+    color: #1b4332;
+    margin-top: 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 16px;
+  }
+  table, th, td {
+    border: 1px solid #cce3d0;
+  }
+  th, td {
+    padding: 12px;
+    text-align: center;
+  }
+  ul, ol {
+    padding-left: 20px;
+    font-size: 16px;
+  }
+  img {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+<style>
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .dashboard-section {
+    animation: fadeInUp 0.8s ease both;
+  }
+</style>
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  window.onload = function () {
+    const ctx = document.getElementById('liveChart').getContext('2d');
+    let data = {
+      labels: ["10:00", "10:10", "10:20", "10:30", "10:40", "10:50"],
+      datasets: [{
+        label: "ความชื้น (%)",
+        data: [45, 42, 40, 38, 36, 39],
+        fill: true,
+        backgroundColor: "rgba(75,192,192,0.2)",
+        borderColor: "#40916c",
+        tension: 0.4
+      }]
+    };
+    new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: "#1b4332"
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: "#1b4332" }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: { color: "#1b4332" }
+          }
+        }
+      }
+    });
+  };
+</script>
+</head>
+<body>
+
+<div class="navbar">
+  🌿 Smart Garden
+  <div>
+    <a href="dashboard.html">แดชบอร์ด</a>
+    <a href="plants.html">ข้อมูลพืช</a>
+    <a href="weather.html">สภาพอากาศ</a>
+    <a href="setting.html">ตั้งค่า</a>
+  </div>
+</div>
+
+<div class="content">
+  
+<div class="dashboard-section">
+  <h2 style="color:#1b4332; display: flex; align-items: center;">
+    <svg width="20" height="20" fill="#2d6a4f" viewBox="0 0 24 24" style="margin-right:8px;">
+      <path d="M10 2a8 8 0 015.29 13.71l4 4a1 1 0 01-1.42 1.42l-4-4A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"/>
+    </svg>
+    ดูรายละเอียดเพิ่มเติม
+  </h2>
+  <ul style="list-style: none; padding: 0; margin-top: 16px;">
+    <li style="margin-bottom: 12px;">
+      <a href="plants.html" style="text-decoration: none; color: #40916c; font-size: 16px;">
+        🌱 ข้อมูลพืชทั้งหมด
+      </a>
+    </li>
+    <li style="margin-bottom: 12px;">
+      <a href="weather.html" style="text-decoration: none; color: #1d3557; font-size: 16px;">
+        🌤 สภาพอากาศและแผนผังสวน
+      </a>
+    </li>
+    <li>
+      <a href="setting.html" style="text-decoration: none; color: #6a4c93; font-size: 16px;">
+        ⚙ ตั้งค่าและระบบแจ้งเตือน
+      </a>
+    </li>
+  <li><a href="select-plant.html">🌾 เลือกพืชเพื่อปลูก</a></li>
+</ul>
+</div>
+
+</div>
+
+<div class="dashboard-section">
+  <h2>📈 สรุปข้อมูลระบบ</h2>
+  <ul style="list-style: none; padding-left: 0; font-size: 16px;">
+    <li>🌡 อุณหภูมิปัจจุบันในสวน: <strong>32°C</strong></li>
+    <li>💧 ความชื้นในดินเฉลี่ย: <strong>41%</strong></li>
+    <li>🪴 จำนวนพืชที่กำลังติดตาม: <strong>8 ชนิด</strong></li>
+    <li>🔔 การแจ้งเตือนวันนี้: <strong>3 ครั้ง</strong></li>
+    <li>📡 สถานะการเชื่อมต่อ Arduino: <span style="color: green;"><strong>เชื่อมต่อ</strong></span></li>
+  <li><a href="select-plant.html">🌾 เลือกพืชเพื่อปลูก</a></li>
+</ul>
+</div>
+
+<div class="dashboard-section">
+  <h2>🪴 รายงานสุขภาพพืชวันนี้</h2>
+  <table>
+    <tr><th>พืช</th><th>ความชื้น</th><th>สถานะ</th></tr>
+    <tr><td>โหระพา</td><td>44%</td><td style="color: green;">ปกติ</td></tr>
+    <tr><td>พริก</td><td>30%</td><td style="color: orange;">เริ่มแห้ง</td></tr>
+    <tr><td>แตงโม</td><td>26%</td><td style="color: red;">⚠ ต่ำกว่าปกติ</td></tr>
+    <tr><td>ชะอม</td><td>38%</td><td style="color: green;">ปกติ</td></tr>
+  </table>
+</div>
+
+<div class="dashboard-section">
+  <h2>📆 ประวัติการรดน้ำอัตโนมัติ (7 วันล่าสุด)</h2>
+  <table>
+    <tr><th>วันที่</th><th>จำนวนครั้ง</th><th>รวมเวลา (นาที)</th></tr>
+    <tr><td>12 พ.ค.</td><td>3</td><td>15</td></tr>
+    <tr><td>11 พ.ค.</td><td>2</td><td>10</td></tr>
+    <tr><td>10 พ.ค.</td><td>4</td><td>20</td></tr>
+    <tr><td>9 พ.ค.</td><td>3</td><td>14</td></tr>
+    <tr><td>8 พ.ค.</td><td>2</td><td>9</td></tr>
+    <tr><td>7 พ.ค.</td><td>3</td><td>13</td></tr>
+    <tr><td>6 พ.ค.</td><td>1</td><td>5</td></tr>
+  </table>
+</div>
+
+<script src="script.js"></script>
+<script src="arduino.js"></script>
+
+  <section id="liveMoisture" class="mt-6 bg-white/80 backdrop-blur shadow rounded-xl p-4 border border-green-100">
+    <div class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold text-green-900">💧 ความชื้นในดิน (เรียลไทม์)</h3>
+      <span id="sourceTag" class="text-xs px-2 py-1 rounded bg-gray-100 text-gray-600">–</span>
+    </div>
+    <div class="mt-3">
+      <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+        <div id="moistBar" class="h-4 rounded-full transition-all" style="width:0%; background: linear-gradient(90deg, #60a5fa, #34d399)"></div>
+      </div>
+      <div class="flex justify-between text-sm text-gray-600 mt-1">
+        <span id="moistPct">0%</span>
+        <span id="moistTs">--:--:--</span>
+      </div>
+    </div>
+    <p id="liveNote" class="text-xs text-gray-500 mt-2">กำลังเชื่อมต่อข้อมูลสด…</p>
+  </section>
+
+<script>
+(function(){
+  const moistBar = () => document.getElementById('moistBar');
+  const moistPct = () => document.getElementById('moistPct');
+  const moistTs  = () => document.getElementById('moistTs');
+  const sourceTag= () => document.getElementById('sourceTag');
+  const note     = () => document.getElementById('liveNote');
+
+  function render(data){
+    if(!data) return;
+    const pct = Math.max(0, Math.min(100, parseInt(data.moisture||0,10)));
+    moistBar().style.width = pct + '%';
+    moistPct().textContent = pct + '%';
+    moistTs().textContent = data.ts ? new Date(data.ts).toLocaleTimeString() : new Date().toLocaleTimeString();
+    sourceTag().textContent = data.source || 'unknown';
+    if(data.source === 'arduino'){
+      sourceTag().className = 'text-xs px-2 py-1 rounded bg-green-100 text-green-700';
+      note().textContent = 'รับค่าจาก Arduino ผ่าน Serial';
+    } else {
+      sourceTag().className = 'text-xs px-2 py-1 rounded bg-blue-100 text-blue-700';
+      note().textContent = 'ค่าจำลอง (mock) — เชื่อมบอร์ดและตั้ง ARDUINO_PORT เพื่อใช้งานจริง';
+    }
+  }
+
+  // Prefer SSE; fallback to polling if SSE unavailable
+  try{
+    if('EventSource' in window){
+      const es = new EventSource('/api/sensor/stream');
+      es.onmessage = (evt) => {
+        const data = JSON.parse(evt.data || '{}');
+        render(data);
+      };
+      es.onerror = () => {
+        note().textContent = 'SSE หลุดการเชื่อมต่อ กำลังสลับไปใช้การดึงข้อมูลแบบช่วงเวลา…';
+        es.close();
+        startPolling();
+      };
+      note().textContent = 'เชื่อมต่อ SSE สำเร็จ';
+    } else {
+      startPolling();
+    }
+  } catch(e){
+    startPolling();
+  }
+
+  function startPolling(){
+    note().textContent = 'โหมดดึงข้อมูลทุก 2 วินาที (fallback)';
+    setInterval(async ()=>{
+      try{
+        const r = await fetch('/api/sensor');
+        const d = await r.json();
+        render(d);
+      }catch(_){}
+    }, 2000);
+  }
+})();
+</script>
+
+</body>
+</html>

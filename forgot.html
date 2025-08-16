@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ลืมรหัสผ่าน | Smart Garden</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      font-family: 'Poppins', sans-serif;
+    }
+    .glass {
+      backdrop-filter: blur(20px);
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+  <div class="glass max-w-md w-full p-8 text-center">
+    <h1 class="text-2xl font-bold text-green-800 mb-4">🔑 ลืมรหัสผ่าน</h1>
+    <p class="text-gray-700 text-sm mb-6">กรอกชื่อผู้ใช้ของคุณ ระบบจะส่งรหัสใหม่ให้</p>
+    <form id="forgotForm" class="space-y-4">
+      <input type="text" id="username" placeholder="ชื่อผู้ใช้" class="w-full p-3 border border-green-300 rounded-lg" required>
+      <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700">ส่งคำขอรีเซ็ตรหัส</button>
+    </form>
+    <p id="msg" class="text-center text-green-700 mt-4"></p>
+    <div class="mt-6 text-sm">
+      กลับไปที่ <a href="/index.html" class="text-green-700 hover:underline">เข้าสู่ระบบ</a>
+    </div>
+  </div>
+  <script>
+    document.getElementById("forgotForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const msg = document.getElementById("msg");
+      msg.innerText = "✅ ระบบส่งรหัสใหม่ไปยังอีเมลของผู้ใช้ " + username + " แล้ว (จำลอง)";
+    });
+  </script>
+<script src="script.js"></script>
+<script src="arduino.js"></script>
+</body>
+</html>
